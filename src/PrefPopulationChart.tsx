@@ -2,11 +2,11 @@ import { FC } from 'react';
 import CheckBoxList from './components/checkBox';
 import Header from './components/header';
 
-const PrePopulationGraph: FC = () => (
+const PrePopulationChart: FC = () => (
   <div className="app">
     <Header />
     <CheckBoxList />
   </div>
 );
 
-export default PrePopulationGraph;
+export default PrePopulationChart;

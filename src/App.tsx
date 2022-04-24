@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import './App.css';
-import PrePopulationGraph from './PrefPopulationGraph';
+import PrePopulationChart from './PrefPopulationChart';
 
 const App: FC = () => (
   <div className="app">
-    <PrePopulationGraph />
+    <PrePopulationChart />
   </div>
 );
 

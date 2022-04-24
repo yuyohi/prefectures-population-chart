@@ -6,18 +6,18 @@ type Prefecture = {
 };
 
 type PrefectureProps = Prefecture & {
-  drawGraph?: () => void;
+  draChart?: () => void;
 };
 
 type PrefectureList = {
   prefectureList?: Prefecture[];
-  drawGraph?: () => void;
+  draChart?: () => void;
 };
 
 const CheckBox: FC<PrefectureProps> = ({
   prefCode = -1,
   prefName = '未設定',
-  drawGraph = () => undefined,
+  draChart = () => undefined,
 }) => (
   <label htmlFor={`prefecture-${prefCode}`}>
     <input
@@ -25,7 +25,7 @@ const CheckBox: FC<PrefectureProps> = ({
       name="prefectures"
       value={prefCode}
       id={`prefecture-${prefCode}`}
-      onChange={drawGraph}
+      onChange={draChart}
     />
     {prefName}
   </label>
@@ -38,18 +38,14 @@ const CheckBoxList: FC<PrefectureList> = ({
       prefName: '未設定',
     },
   ],
-  drawGraph = () => undefined,
+  draChart = () => undefined,
 }) => (
   <div>
     {prefectureList.map((prefecture) => {
       const { prefCode, prefName } = prefecture;
 
       return (
-        <CheckBox
-          prefCode={prefCode}
-          prefName={prefName}
-          drawGraph={drawGraph}
-        />
+        <CheckBox prefCode={prefCode} prefName={prefName} draChart={draChart} />
       );
     })}
   </div>
