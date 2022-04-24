@@ -36,7 +36,7 @@ const CheckBoxList: FC<PrefectureList> = ({
   ],
   drawChart = () => undefined,
 }) => (
-  <div>
+  <>
     {prefectureList.map((prefecture) => {
       const { prefCode, prefName } = prefecture;
 
@@ -48,7 +48,7 @@ const CheckBoxList: FC<PrefectureList> = ({
         />
       );
     })}
-  </div>
+  </>
 );
 
 export default CheckBoxList;
