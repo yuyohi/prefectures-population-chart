@@ -89,6 +89,7 @@ module.exports = {
       2,
       { namedComponents: 'arrow-function' },
     ],
+    'react/require-default-props': [0, false, true],
   },
   overrides: [
     {
