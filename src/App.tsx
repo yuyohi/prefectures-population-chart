@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import './App.css';
-import CheckBoxList from './components/checkBox';
+import PrePopulationGraph from './PrefPopulationGraph';
 
 const App: FC = () => (
   <div className="app">
-    <CheckBoxList />
+    <PrePopulationGraph />
   </div>
 );
 
