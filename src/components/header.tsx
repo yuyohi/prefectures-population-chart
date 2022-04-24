@@ -1,5 +1,9 @@
 import { FC } from 'react';
 
-const Header: FC = () => <h2>都道府県別 総人口グラフ</h2>;
+const Header: FC = () => (
+  <header>
+    <h1>都道府県別 総人口グラフ</h1>
+  </header>
+);
 
 export default Header;
