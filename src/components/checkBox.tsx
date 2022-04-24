@@ -1,23 +1,19 @@
 import { FC } from 'react';
-
-type Prefecture = {
-  prefCode?: number;
-  prefName?: string;
-};
+import { Prefecture } from './prefecture';
 
 type PrefectureProps = Prefecture & {
-  draChart?: () => void;
+  drawChart?: () => void;
 };
 
 type PrefectureList = {
   prefectureList?: Prefecture[];
-  draChart?: () => void;
+  drawChart?: () => void;
 };
 
 const CheckBox: FC<PrefectureProps> = ({
   prefCode = -1,
   prefName = '未設定',
-  draChart = () => undefined,
+  drawChart = () => undefined,
 }) => (
   <label htmlFor={`prefecture-${prefCode}`}>
     <input
@@ -25,7 +21,7 @@ const CheckBox: FC<PrefectureProps> = ({
       name="prefectures"
       value={prefCode}
       id={`prefecture-${prefCode}`}
-      onChange={draChart}
+      onChange={drawChart}
     />
     {prefName}
   </label>
@@ -38,14 +34,18 @@ const CheckBoxList: FC<PrefectureList> = ({
       prefName: '未設定',
     },
   ],
-  draChart = () => undefined,
+  drawChart = () => undefined,
 }) => (
   <div>
     {prefectureList.map((prefecture) => {
       const { prefCode, prefName } = prefecture;
 
       return (
-        <CheckBox prefCode={prefCode} prefName={prefName} draChart={draChart} />
+        <CheckBox
+          prefCode={prefCode}
+          prefName={prefName}
+          drawChart={drawChart}
+        />
       );
     })}
   </div>
