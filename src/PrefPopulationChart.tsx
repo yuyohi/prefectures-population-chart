@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import CheckBoxList from './components/checkBox';
 import Header from './components/header';
+import CheckBoxForm from './containers/checkBox';
 import Chart from './components/Chart';
 
 const PrePopulationChart: FC = () => (
@@ -9,7 +9,7 @@ const PrePopulationChart: FC = () => (
       <Header />
     </div>
     <div>
-      <CheckBoxList />
+      <CheckBoxForm />
     </div>
     <div>
       <Chart />

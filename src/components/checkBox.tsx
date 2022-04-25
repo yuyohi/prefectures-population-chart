@@ -42,6 +42,7 @@ const CheckBoxList: FC<PrefectureList> = ({
 
       return (
         <CheckBox
+          key={prefCode}
           prefCode={prefCode}
           prefName={prefName}
           drawChart={drawChart}
