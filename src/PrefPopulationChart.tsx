@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import Header from './components/header';
 import CheckBoxForm from './containers/checkBox';
-import Chart from './components/Chart';
+import Chart from './components/chart';
 
 const PrePopulationChart: FC = () => {
   const [drawPref, setDrawPref] = useState<Set<number>>(new Set());
@@ -14,7 +14,6 @@ const PrePopulationChart: FC = () => {
       newDrawPref.delete(prefCode);
     }
     setDrawPref(newDrawPref);
-    console.log(newDrawPref);
   };
 
   return (
