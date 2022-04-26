@@ -1,19 +1,19 @@
-import { FC } from 'react';
+import { FC, SyntheticEvent } from 'react';
 import { Prefecture } from './prefecture';
 
 type PrefectureProps = Prefecture & {
-  drawChart?: () => void;
+  handleItemChange?: (e: SyntheticEvent<HTMLInputElement>) => void;
 };
 
 type PrefectureList = {
   prefectureList?: Prefecture[];
-  drawChart?: () => void;
+  handleItemChange?: (e: SyntheticEvent<HTMLInputElement>) => void;
 };
 
 const CheckBox: FC<PrefectureProps> = ({
   prefCode = -1,
   prefName = '未設定',
-  drawChart = () => undefined,
+  handleItemChange = () => undefined,
 }) => (
   <label htmlFor={`prefecture-${prefCode}`}>
     <input
@@ -21,7 +21,7 @@ const CheckBox: FC<PrefectureProps> = ({
       name="prefectures"
       value={prefCode}
       id={`prefecture-${prefCode}`}
-      onChange={drawChart}
+      onChange={handleItemChange}
     />
     {prefName}
   </label>
@@ -34,7 +34,7 @@ const CheckBoxList: FC<PrefectureList> = ({
       prefName: '未設定',
     },
   ],
-  drawChart = () => undefined,
+  handleItemChange = () => undefined,
 }) => (
   <>
     {prefectureList.map((prefecture) => {
@@ -45,7 +45,7 @@ const CheckBoxList: FC<PrefectureList> = ({
           key={prefCode}
           prefCode={prefCode}
           prefName={prefName}
-          drawChart={drawChart}
+          handleItemChange={handleItemChange}
         />
       );
     })}
