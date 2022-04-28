@@ -37,7 +37,6 @@ const usePrefDataList = (changeOrder: ChangeOrder | undefined) => {
       )
       .then((res: AxiosResponse<PopulationTransit>) => {
         setPresDataList((prev) => {
-          console.log(prev);
           const newDatalist = cloneDeep(prev);
           const totalPopulation = res.data.result.data[0].data;
 
