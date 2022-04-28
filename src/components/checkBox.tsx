@@ -11,8 +11,19 @@ type PrefectureList = {
   handleItemChange?: (e: SyntheticEvent<HTMLInputElement>) => void;
 };
 
-const checkBoxStyle = css({
+const LabelStyle = css({
   display: 'inline-block',
+  fontSize: '1.2em',
+  padding: '5px',
+  cursor: 'pointer',
+});
+
+const checkBoxStyle = css({
+  boxSizing: 'border-box',
+  cursor: 'pointer',
+  position: 'relative',
+  width: '1.2em',
+  height: '1.2em',
 });
 
 const CheckBox: FC<PrefectureProps> = ({
@@ -20,13 +31,14 @@ const CheckBox: FC<PrefectureProps> = ({
   prefName = '未設定',
   handleItemChange = () => undefined,
 }) => (
-  <label htmlFor={`prefecture-${prefCode}`} css={checkBoxStyle}>
+  <label htmlFor={`prefecture-${prefCode}`} css={LabelStyle}>
     <input
       type="checkbox"
       name={prefName}
       value={prefCode}
       id={`prefecture-${prefCode}`}
       onChange={handleItemChange}
+      css={checkBoxStyle}
     />
     {prefName}
   </label>
