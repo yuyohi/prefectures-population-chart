@@ -1,19 +1,22 @@
 import { FC, useState } from 'react';
 import Header from './components/header';
 import CheckBoxForm from './containers/checkBox';
-import Chart from './components/chart';
+import EnhancedChart from './containers/chart';
+import { ChangeOrder } from './hooks/order';
 
 const PrePopulationChart: FC = () => {
-  const [drawPref, setDrawPref] = useState<Set<number>>(new Set());
+  const [latestOrder, setLatestOrder] = useState<ChangeOrder>();
 
-  const updateDrawPref = (checked: boolean, prefCode: number) => {
-    const newDrawPref = new Set(drawPref);
+  const updateOrder = (
+    checked: boolean,
+    prefCode: number,
+    prefName: string,
+  ) => {
     if (checked) {
-      newDrawPref.add(prefCode);
+      setLatestOrder({ order: 'add', prefCode, prefName });
     } else {
-      newDrawPref.delete(prefCode);
+      setLatestOrder({ order: 'delete', prefCode, prefName });
     }
-    setDrawPref(newDrawPref);
   };
 
   return (
@@ -22,10 +25,10 @@ const PrePopulationChart: FC = () => {
         <Header />
       </div>
       <div>
-        <CheckBoxForm updateDrawPref={updateDrawPref} />
+        <CheckBoxForm updateOrder={updateOrder} />
       </div>
       <div>
-        <Chart />
+        <EnhancedChart changeOrder={latestOrder} />
       </div>
     </div>
   );

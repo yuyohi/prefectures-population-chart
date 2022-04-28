@@ -18,7 +18,7 @@ const CheckBox: FC<PrefectureProps> = ({
   <label htmlFor={`prefecture-${prefCode}`}>
     <input
       type="checkbox"
-      name="prefectures"
+      name={prefName}
       value={prefCode}
       id={`prefecture-${prefCode}`}
       onChange={handleItemChange}

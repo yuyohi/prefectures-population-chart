@@ -9,27 +9,33 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { Prefecture } from './prefecture';
+import { prefDateChart } from './prefecture';
 
-type Population = {
-  year: number;
-  value: number;
-};
-
-type Data = Prefecture & {
-  data: Population[];
-};
-
-type Props = { dataList?: undefined | Data[] };
+type Props = { dataList?: undefined | prefDateChart[] };
 
 const Chart: FC<Props> = ({ dataList = undefined }) => (
   <ResponsiveContainer width="80%" height={500}>
     <LineChart data={dataList && dataList[0].data}>
-      {dataList?.map((data) => (
-        <Line data={data.data} dataKey="value" name={data.prefName} />
+      {dataList?.map((data, index) => (
+        <Line
+          key={data.prefName}
+          data={data.data}
+          dataKey="value"
+          xAxisId={index}
+          name={data.prefName}
+          stroke={data.color}
+        />
       ))}
+      {dataList?.map((data, index) => (
+        <XAxis
+          dataKey="year"
+          xAxisId={index}
+          hide={index !== 0}
+          key={`xAxis${data.prefName}`}
+        />
+      ))}
+
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="year" />
       <YAxis />
       <Legend />
       <Tooltip />
