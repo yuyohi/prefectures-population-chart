@@ -12,11 +12,6 @@ const CheckBoxForm: FC<{
 }> = ({ updateOrder }) => {
   const prefectures: Prefectures | undefined = usePrefectures();
   const handleItemChange = (e: SyntheticEvent<HTMLInputElement>) => {
-    console.log(
-      e.currentTarget.checked,
-      e.currentTarget.value,
-      e.currentTarget.name,
-    );
     updateOrder(
       e.currentTarget.checked,
       Number(e.currentTarget.value),
