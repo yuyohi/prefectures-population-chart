@@ -1,8 +1,13 @@
 import { FC, useState } from 'react';
+import { css } from '@emotion/react';
 import Header from './components/header';
 import CheckBoxForm from './containers/checkBox';
 import EnhancedChart from './containers/chart';
 import { ChangeOrder } from './hooks/order';
+
+const flexStyle = css({
+  display: 'flex',
+});
 
 const PrePopulationChart: FC = () => {
   const [latestOrder, setLatestOrder] = useState<ChangeOrder>();
@@ -27,7 +32,7 @@ const PrePopulationChart: FC = () => {
       <div>
         <CheckBoxForm updateOrder={updateOrder} />
       </div>
-      <div>
+      <div css={flexStyle}>
         <EnhancedChart changeOrder={latestOrder} />
       </div>
     </div>

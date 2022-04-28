@@ -9,13 +9,22 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { css } from '@emotion/react';
 import { prefDateChart } from './prefecture';
 
 type Props = { dataList?: undefined | prefDateChart[] };
 
+const chartStyle = css({
+  marginLeft: 'auto',
+  marginRight: 'auto',
+});
+
 const Chart: FC<Props> = ({ dataList = undefined }) => (
-  <ResponsiveContainer width="80%" height={500}>
-    <LineChart data={dataList && dataList[0].data}>
+  <ResponsiveContainer width="99%" height={500} css={chartStyle}>
+    <LineChart
+      data={dataList && dataList[0].data}
+      margin={{ top: 10, bottom: 10 }}
+    >
       {dataList?.map((data, index) => (
         <Line
           key={data.prefName}

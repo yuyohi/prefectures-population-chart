@@ -1,4 +1,5 @@
 import { FC, SyntheticEvent } from 'react';
+import { css } from '@emotion/react';
 import { Prefecture } from './prefecture';
 
 type PrefectureProps = Prefecture & {
@@ -10,12 +11,16 @@ type PrefectureList = {
   handleItemChange?: (e: SyntheticEvent<HTMLInputElement>) => void;
 };
 
+const checkBoxStyle = css({
+  display: 'inline-block',
+});
+
 const CheckBox: FC<PrefectureProps> = ({
   prefCode = -1,
   prefName = '未設定',
   handleItemChange = () => undefined,
 }) => (
-  <label htmlFor={`prefecture-${prefCode}`}>
+  <label htmlFor={`prefecture-${prefCode}`} css={checkBoxStyle}>
     <input
       type="checkbox"
       name={prefName}
